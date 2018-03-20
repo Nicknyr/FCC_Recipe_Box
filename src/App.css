@@ -32,3 +32,22 @@
 .recipe-section label {
   display: block;
 }
+
+.Recipe-List {
+  padding-top: 3em;
+}
+
+.Recipe-Item {
+  margin: 1em;
+}
+
+
+
+.Recipe-List label {
+  display: block;
+}
+
+.Recipe-List button {
+  display: block;
+  margin: auto;
+}
