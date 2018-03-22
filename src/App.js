@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import RecipeList from './RecipeList';
+import Item from './Item';
+import Details from './Details';
 import './App.css';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -8,13 +11,14 @@ export default class App extends Component {
     this.state = {
       items: ["Pumpkin Pie", "Spaghetti", "Onion Pie"],
       ingredients:[
-        ["Pumpkin Puree", "Sweetened Condensed Milk", "Eggs", "Pumpkin Pie Spice", "Pie Crust"],
-        ["Noodles", "Tomato Sauce", "(Optional) Meatballs"],
-        ["Onion", "Pie Crust"]
+        ["Pumpkin Puree ", "Sweetened Condensed Milk ", "Eggs ", "Pumpkin Pie Spice ", "Pie Crust "],
+        ["Noodles ", "Tomato Sauce ", "(Optional) Meatballs "],
+        ["Onion", "Pie Crust "]
       ],
       inputVal: '',
       ingredientVal: '',
-      showRecipe: false
+      showRecipe: false,
+      showDetails: false
     };
   }
 
@@ -53,30 +57,46 @@ export default class App extends Component {
     });
   }
 
+  // Shows Details
+  ShowRecipeDetails = (bool) => {
+    this.setState({
+      showDetails: bool
+    });
+  }
+
   render() {
+    console.log(this.state.ingredients);
+    const items = this.state.items;
+
     return (
-      <div className="App">
-        <h3>Recipe List</h3>
-        <RecipeList items={this.state.items} ingredients={this.state.ingredients} />
+      <div className="Recipe-List">
+        <h1>Recipe List</h1>
+        <Item items={this.state.items} onClick={this.ShowRecipeDetails}/>
         <button onClick={this.AddRecipe}>Add New Recipe</button>
+
+      { this.state.showDetails ?
+        <div>
+          <Details ingredients={this.state.ingredients} />
+          <p>{Details}</p>
+        </div>
+
+        : null
+      }
 
 
       { this.state.showRecipe ?
         <div>
-          <form className="Recipe-List" onSubmit={this.onSubmit}>
-            <div className="Recipe-Item">
+          <form className="Recipe-Form" onSubmit={this.onSubmit}>
               <label>Recipe Name</label>
               <input
                 value={this.state.inputVal}
                 onChange={this.handleChange} />
-            </div>
 
-            <div className="Recipe-Item">
               <label>Ingredients</label>
               <input
                 value={this.state.ingredientVal}
                 onChange={this.handleIngredientChange} />
-            </div>
+
             <button>Submit</button>
           </form>
         </div>
