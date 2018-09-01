@@ -8,6 +8,7 @@ import './App.css';
 export default class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       items: ["Pumpkin Pie", "Spaghetti", "Onion Pie"],
       ingredients:[
@@ -18,8 +19,9 @@ export default class App extends Component {
       inputVal: '',
       ingredientVal: '',
       showRecipe: false,
-      showDetails: false
+      showDetails: true
     };
+
   }
 
   // Get text user inputs for recipe
@@ -64,6 +66,23 @@ export default class App extends Component {
     });
   }
 
+  edit = (item) => {
+    console.log('Edit button clicked');
+  }
+
+  delete = (item, index) => {
+    console.log("item is " + item);
+    console.log("index is " + index);
+
+    this.setState({ items: this.state.items.filter(function(x) {
+      return x !== item;
+    })});
+
+    this.setState({
+      ingredients : this.state.ingredients.filter((_, i) => i !== index)
+    });
+  }
+
   render() {
     console.log(this.state.ingredients);
     const items = this.state.items;
@@ -71,18 +90,24 @@ export default class App extends Component {
     return (
       <div className="Recipe-List">
         <h1>Recipe List</h1>
-        <Item items={this.state.items} onClick={this.ShowRecipeDetails}/>
+
+        <Item items={this.state.items}
+              onClick={this.ShowRecipeDetails}
+              ingredients={this.state.ingredients}
+              edit={this.edit}
+              delete={this.delete}
+        />
+
+        {/* this.state.showDetails ?
+          <div>
+            <Details ingredients={this.state.ingredients}  />
+            <p>{Details}</p>
+          </div>
+
+          : null
+        */}
+
         <button onClick={this.AddRecipe}>Add New Recipe</button>
-
-      { this.state.showDetails ?
-        <div>
-          <Details ingredients={this.state.ingredients} />
-          <p>{Details}</p>
-        </div>
-
-        : null
-      }
-
 
       { this.state.showRecipe ?
         <div>
