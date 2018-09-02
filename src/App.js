@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import RecipeList from './RecipeList';
 import Item from './Item';
 import Details from './Details';
 import './App.css';
+import RecipeForm from './RecipeForm.js';
 
 
 export default class App extends Component {
@@ -18,7 +18,7 @@ export default class App extends Component {
       ],
       inputVal: '',
       ingredientVal: '',
-      showRecipe: false,
+      showRecipeForm: false,
       showDetails: true
     };
 
@@ -37,51 +37,36 @@ export default class App extends Component {
   onSubmit = (event) => {
     event.preventDefault()
     this.setState({
-      inputVal: '',
+      //inputVal: '',
       items: [...this.state.items, this.state.inputVal],
-      ingredientVal: '',
-      ingredients: [...this.state.ingredients, this.state.ingredientVal]
+      //ingredientVal: '',
+      ingredients: [...this.state.ingredients, this.state.ingredientVal],
+      showRecipeForm: false
     });
-  }
 
-  onIngredientSubmit = (event) => {
-    event.preventDefault()
-    this.setState({
-      ingredientVal: '',
-      ingredients: [...this.state.ingredients, this.state.ingredientVal]
-    });
   }
 
   // Shows recipe
   AddRecipe = (bool) => {
     this.setState({
-      showRecipe: bool
+      showRecipeForm: bool
     });
   }
 
-  // Shows Details
-  ShowRecipeDetails = (bool) => {
-    this.setState({
-      showDetails: bool
-    });
-  }
 
-  edit = (item) => {
+  edit = (item, index, e) => {
     console.log('Edit button clicked');
+    console.log('index is ' + index);
+
   }
 
   delete = (item, index) => {
-    console.log("item is " + item);
-    console.log("index is " + index);
-
-    this.setState({ items: this.state.items.filter(function(x) {
-      return x !== item;
-    })});
-
-    this.setState({
-      ingredients : this.state.ingredients.filter((_, i) => i !== index)
+     this.setState({
+      ingredients : this.state.ingredients.filter((_, i) => i !== index),
+      items: this.state.items.filter((_, i) => i !== index)
     });
   }
+
 
   render() {
     console.log(this.state.ingredients);
@@ -91,43 +76,28 @@ export default class App extends Component {
       <div className="Recipe-List">
         <h1>Recipe List</h1>
 
-        <Item items={this.state.items}
-              onClick={this.ShowRecipeDetails}
-              ingredients={this.state.ingredients}
-              edit={this.edit}
-              delete={this.delete}
+        <Item
+          items={this.state.items}
+          ingredients={this.state.ingredients}
+          edit={this.edit}
+          delete={this.delete}
         />
 
-        {/* this.state.showDetails ?
-          <div>
-            <Details ingredients={this.state.ingredients}  />
-            <p>{Details}</p>
-          </div>
-
-          : null
-        */}
 
         <button onClick={this.AddRecipe}>Add New Recipe</button>
 
-      { this.state.showRecipe ?
-        <div>
-          <form className="Recipe-Form" onSubmit={this.onSubmit}>
-              <label>Recipe Name</label>
-              <input
-                value={this.state.inputVal}
-                onChange={this.handleChange} />
+        { this.state.showRecipeForm ?
 
-              <label>Ingredients</label>
-              <input
-                value={this.state.ingredientVal}
-                onChange={this.handleIngredientChange} />
+          <RecipeForm
+            inputVale={this.state.inputVal}
+            handleChange={this.handleChange}
+            ingredientVal={this.state.ingredientVal}
+            handleIngredientChange={this.handleIngredientChange}
+            onSubmit={this.onSubmit}
+          />
 
-            <button>Submit</button>
-          </form>
-        </div>
-
-        :null
-      }
+          :null
+        }
       </div>
     );
   }

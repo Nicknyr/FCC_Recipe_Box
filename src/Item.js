@@ -13,7 +13,7 @@ const Item = (props) => (
         </ul>
         <div>
           <ul>
-            <li>{props.ingredients[index]}</li>
+            <li><input type="text" defaultValue={props.ingredients[index]} onChange={props.edit} /></li>
           </ul>
           <button onClick={() => props.edit(item, index)}>Edit</button>
           <button onClick={() => props.delete(item, index)}>Delete</button>
