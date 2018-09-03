@@ -8,7 +8,7 @@ const Item = (props) => (
         <div>
         <ul>
           <li key={index}>
-            <a href="#">{item}</a>
+            {item}
           </li>
         </ul>
         <div>

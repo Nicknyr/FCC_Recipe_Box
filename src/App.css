@@ -1,17 +1,11 @@
 body {
-  background-color: #FF8C00;
+  background-color: #f27935;
   color: snow; }
 
 .Recipe-List {
   margin-top: 4em; }
   .Recipe-List h1 {
     text-align: center; }
-  .Recipe-List a text {
-    margin: 1em;
-    display: block; }
-  .Recipe-List a {
-    text-decoration: none;
-    color: #0063B1; }
   .Recipe-List ul li {
     list-style-type: none; }
   .Recipe-List label {
@@ -23,6 +17,8 @@ body {
 .Recipe-Item {
   width: 50%;
   margin: auto; }
+  .Recipe-Item li {
+    font-size: 1.5em; }
   .Recipe-Item button {
     display: inline-block;
     margin: 1em; }
@@ -43,5 +39,22 @@ body {
   top: 25%;
   left: 25%; }
 
+.form-content {
+  margin-top: 3em; }
+
+.x-close {
+  width: 30px;
+  float: right;
+  margin-top: .2em;
+  margin-right: .2em; }
+
 .Details {
   background-color: red; }
+
+button {
+  background-color: #03c9a9;
+  color: snow;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  padding: 5px; }

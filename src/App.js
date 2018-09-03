@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Item from './Item';
-import Details from './Details';
 import './App.css';
 import RecipeForm from './RecipeForm.js';
 
@@ -26,24 +25,23 @@ export default class App extends Component {
 
   // Get text user inputs for recipe
   handleChange = (event) => {
-    this.setState({inputVal: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleIngredientChange = (event) => {
-    this.setState({ingredientVal: event.target.value});
-  }
 
   // When user submits recipe this adds it
   onSubmit = (event) => {
     event.preventDefault()
     this.setState({
-      //inputVal: '',
       items: [...this.state.items, this.state.inputVal],
-      //ingredientVal: '',
       ingredients: [...this.state.ingredients, this.state.ingredientVal],
       showRecipeForm: false
     });
 
+  }
+
+  closeRecipeForm = () => {
+    this.setState({ showRecipeForm: false });
   }
 
   // Shows recipe
@@ -89,11 +87,12 @@ export default class App extends Component {
         { this.state.showRecipeForm ?
 
           <RecipeForm
-            inputVale={this.state.inputVal}
+            inputVal={this.state.inputVal}
             handleChange={this.handleChange}
+            onChange={this.handleChange}
             ingredientVal={this.state.ingredientVal}
-            handleIngredientChange={this.handleIngredientChange}
             onSubmit={this.onSubmit}
+            closeRecipeForm={this.closeRecipeForm}
           />
 
           :null

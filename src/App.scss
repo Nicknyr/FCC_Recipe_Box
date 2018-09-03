@@ -1,6 +1,6 @@
 
 body {
-  background-color: #FF8C00;
+  background-color: #f27935;//#FF8C00;
   color: snow;
 
 }
@@ -10,16 +10,6 @@ body {
 
   h1 {
     text-align: center;
-  }
-
-  a text{
-    margin: 1em;
-    display: block;
-  }
-
-  a {
-    text-decoration: none;
-    color: #0063B1;
   }
 
   ul li {
@@ -37,9 +27,14 @@ body {
 
 }
 
+
 .Recipe-Item {
   width: 50%;
   margin: auto;
+
+  li {
+    font-size: 1.5em;
+  }
 
   button {
     display: inline-block;
@@ -64,7 +59,28 @@ body {
   left: 25%;
 }
 
+.form-content {
+  margin-top: 3em;
+}
+
+.x-close {
+  width: 30px;
+  float: right;
+  margin-top: .2em;
+  margin-right: .2em;
+
+}
+
 .Details {
   background-color: red;
-  
+
+}
+
+button {
+  background-color: #03c9a9;
+  color: snow;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  padding: 5px;
 }
