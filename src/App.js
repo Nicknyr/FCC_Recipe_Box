@@ -56,6 +56,8 @@ export default class App extends Component {
     console.log('Edit button clicked');
     console.log('index is ' + index);
 
+    this.setState({ showRecipeForm: !this.state.showRecipeForm });
+
   }
 
   delete = (item, index) => {
@@ -67,9 +69,6 @@ export default class App extends Component {
 
 
   render() {
-    console.log(this.state.ingredients);
-    const items = this.state.items;
-
     return (
       <div className="Recipe-List">
         <h1>Recipe List</h1>
@@ -89,7 +88,6 @@ export default class App extends Component {
           <RecipeForm
             inputVal={this.state.inputVal}
             handleChange={this.handleChange}
-            onChange={this.handleChange}
             ingredientVal={this.state.ingredientVal}
             onSubmit={this.onSubmit}
             closeRecipeForm={this.closeRecipeForm}
@@ -97,6 +95,8 @@ export default class App extends Component {
 
           :null
         }
+
+
       </div>
     );
   }

@@ -17,6 +17,9 @@ body {
 .Recipe-Item {
   width: 50%;
   margin: auto; }
+  .Recipe-Item .Recipe-Item-Container {
+    border: .5px solid snow;
+    margin: 1em; }
   .Recipe-Item li {
     font-size: 1.5em; }
   .Recipe-Item button {

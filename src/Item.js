@@ -5,19 +5,24 @@ const Item = (props) => (
     <div className="Recipe-Item" key={props.text}>
 
         {props.items.map((item, index) =>
-        <div>
+        <div className="Recipe-Item-Container">
         <ul>
           <li key={index}>
             {item}
           </li>
         </ul>
-        <div>
+
           <ul>
-            <li><input type="text" defaultValue={props.ingredients[index]} onChange={props.edit} /></li>
+            <li>
+              {/*<input type="text" defaultValue={props.ingredients[index]} onChange={props.edit} />*/}
+
+              <p onChange={props.edit}>{props.ingredients[index]}</p>
+            </li>
+
           </ul>
           <button onClick={() => props.edit(item, index)}>Edit</button>
           <button onClick={() => props.delete(item, index)}>Delete</button>
-        </div>
+
         </div>
       )}
     </div>
