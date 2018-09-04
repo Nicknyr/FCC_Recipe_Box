@@ -25,7 +25,9 @@ export default class App extends Component {
       ingredientValEdit: '',
       // Controls whether forms are displayed or hidden
       showRecipeForm: false,
-      showRecipeEditForm: false
+      showRecipeEditForm: false,
+      // Index to select which recipe item is being edited
+      editingIndex: ''
     };
 
   }
@@ -46,14 +48,19 @@ export default class App extends Component {
     });
   }
 
-  // Should edit and update a recipe item when user clicks edit button and then submits RecipeEditForm, not working
   onEditSubmit = (event) => {
-    event.preventDefault()
-    // This setState shoul erase previous recipe state and rewrite it with the details the user entered after editing that particular recipe item
+    event.preventDefault();
+    const {items, ingredients, inputValEdit, ingredientValEdit, editingIndex} = this.state;
+
+    // Selects proper recipe item to edit
+    items[editingIndex] = inputValEdit;
+    ingredients[editingIndex] = ingredientValEdit;
+
     this.setState({
-      items: this.state.inputVal,
-      ingredients: this.state.ingredientVal,
-      showRecipeEditForm: false
+      items: items,
+      ingredients: ingredients,
+      inputVal: '',
+      ingredientVal: ''
     });
   }
 
@@ -75,7 +82,10 @@ export default class App extends Component {
   edit = (item, index) => {
     console.log('Edit button clicked');
     console.log('index is ' + index);
-    this.setState({ showRecipeEditForm: !this.state.showRecipeEditForm });
+    this.setState({
+      showRecipeEditForm: !this.state.showRecipeEditForm,
+      editingIndex: index
+    });
   }
 
   // Deletes recipe item from the list
@@ -105,7 +115,7 @@ export default class App extends Component {
         { this.state.showRecipeEditForm ?
 
           <RecipeEditForm
-            inputVal={this.state.inputValEdit}
+            inputValEdit={this.state.inputValEdit}
             handleChange={this.handleChange}
             ingredientValEdit={this.state.ingredientValEdit}
             onEditSubmit={this.onEditSubmit}
