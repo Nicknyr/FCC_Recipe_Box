@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Item from './Item';
 import './App.css';
 import RecipeForm from './RecipeForm.js';
+import RecipeEditForm from './RecipeEdit.js';
 
 
 export default class App extends Component {
@@ -15,21 +16,27 @@ export default class App extends Component {
         ["Noodles ", "Tomato Sauce ", "(Optional) Meatballs "],
         ["Onion", "Pie Crust "]
       ],
+
+      // Recipe name and ingredients
       inputVal: '',
       ingredientVal: '',
+      // Recipe name and ingredients when user is editing existing recipe
+      inputValEdit: '',
+      ingredientValEdit: '',
+      // Controls whether forms are displayed or hidden
       showRecipeForm: false,
-      showDetails: true
+      showRecipeEditForm: false
     };
 
   }
 
-  // Get text user inputs for recipe
+  // Get text user inputs for recipes
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
 
-  // When user submits recipe this adds it
+  // When user submits recipe this adds it to the list
   onSubmit = (event) => {
     event.preventDefault()
     this.setState({
@@ -37,7 +44,18 @@ export default class App extends Component {
       ingredients: [...this.state.ingredients, this.state.ingredientVal],
       showRecipeForm: false
     });
+  }
 
+  // Should edit and update a recipe item when user clicks edit button and then submits RecipeEditForm, not working
+  onEditSubmit = (event, index) => {
+    console.log('OnEditSubmit index ' + index);
+    event.preventDefault()
+    // This setState shoul erase previous recipe state and rewrite it with the details the user entered after editing that particular recipe item
+    this.setState({
+      items: this.state.inputVal,
+      ingredients: this.state.ingredientVal,
+      showRecipeEditForm: false
+    });
   }
 
   closeRecipeForm = () => {
@@ -51,15 +69,15 @@ export default class App extends Component {
     });
   }
 
-
-  edit = (item, index, e) => {
+  // Is called when one of the edit recipe buttons is clicked, shows RecipeEditForm
+  edit = (item, index) => {
     console.log('Edit button clicked');
     console.log('index is ' + index);
 
-    this.setState({ showRecipeForm: !this.state.showRecipeForm });
-
+    this.setState({ showRecipeEditForm: !this.state.showRecipeEditForm });
   }
 
+  // Deletes recipe item from the list
   delete = (item, index) => {
      this.setState({
       ingredients : this.state.ingredients.filter((_, i) => i !== index),
@@ -83,6 +101,21 @@ export default class App extends Component {
 
         <button onClick={this.AddRecipe}>Add New Recipe</button>
 
+        {/* Shows form to edit recipe */}
+        { this.state.showRecipeEditForm ?
+
+          <RecipeEditForm
+            inputVal={this.state.inputValEdit}
+            handleChange={this.handleChange}
+            ingredientValEdit={this.state.ingredientValEdit}
+            onEditSubmit={this.onEditSubmit}
+            closeRecipeForm={this.closeRecipeForm}
+          />
+
+          :null
+        }
+
+        {/* Shows form to add new recipe to the list */}
         { this.state.showRecipeForm ?
 
           <RecipeForm
