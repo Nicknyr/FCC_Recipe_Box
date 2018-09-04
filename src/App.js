@@ -14,7 +14,7 @@ export default class App extends Component {
       ingredients:[
         ["Pumpkin Puree ", "Sweetened Condensed Milk ", "Eggs ", "Pumpkin Pie Spice ", "Pie Crust "],
         ["Noodles ", "Tomato Sauce ", "(Optional) Meatballs "],
-        ["Onion", "Pie Crust "]
+        ["Onion ", "Pie Crust "]
       ],
 
       // Recipe name and ingredients
@@ -47,8 +47,7 @@ export default class App extends Component {
   }
 
   // Should edit and update a recipe item when user clicks edit button and then submits RecipeEditForm, not working
-  onEditSubmit = (event, index) => {
-    console.log('OnEditSubmit index ' + index);
+  onEditSubmit = (event) => {
     event.preventDefault()
     // This setState shoul erase previous recipe state and rewrite it with the details the user entered after editing that particular recipe item
     this.setState({
@@ -59,7 +58,10 @@ export default class App extends Component {
   }
 
   closeRecipeForm = () => {
-    this.setState({ showRecipeForm: false });
+    this.setState({
+      showRecipeForm: false,
+      showRecipeEditForm: false
+    });
   }
 
   // Shows recipe
@@ -73,7 +75,6 @@ export default class App extends Component {
   edit = (item, index) => {
     console.log('Edit button clicked');
     console.log('index is ' + index);
-
     this.setState({ showRecipeEditForm: !this.state.showRecipeEditForm });
   }
 
@@ -97,7 +98,6 @@ export default class App extends Component {
           edit={this.edit}
           delete={this.delete}
         />
-
 
         <button onClick={this.AddRecipe}>Add New Recipe</button>
 
@@ -128,7 +128,6 @@ export default class App extends Component {
 
           :null
         }
-
 
       </div>
     );

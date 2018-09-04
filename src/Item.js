@@ -10,7 +10,7 @@ const Item = (props) => (
           <li key={index}>
             {item}
           </li>
-          <li onChange={props.edit}>
+          <li>
             {props.ingredients[index]}
           </li>
         </ul>

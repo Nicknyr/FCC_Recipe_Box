@@ -8,6 +8,7 @@ const RecipeForm = (props) => {
         <p className="x-close" onClick={props.closeRecipeForm}>X</p>
         <div className="form-content">
           <label>Recipe Name</label>
+          
           <input
             name="inputVal"
             value={props.inputVal}
@@ -20,7 +21,6 @@ const RecipeForm = (props) => {
             value={props.ingredientVal}
             onChange={props.handleChange}
           />
-
 
           <button>Submit</button>
         </div>
