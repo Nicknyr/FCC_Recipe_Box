@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans|IBM+Plex+Serif');
+
+
+body {
+  color: snow;//#011627;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+
+h1, h3, h3 {
+  font-family: 'IBM Plex Serif', serif;
+  color: snow;
+}
+
+.container {
+  background-image: radial-gradient( circle farthest-corner at 0.8% 1.8%,  rgba(255,104,107,1) 0%, rgba(255,187,103,1) 90.1% );
+  height: 100vh;
+  overflow: auto;
+
+  h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 2.5em;
+  }
+
+  h3 {
+    font-size: 1.8em;
+  }
+
+  p {
+    padding-top: .5em;
+    padding-bottom: .5em;
+  }
+
+  label {
+    display: block;
+  }
+
+  button {
+    text-align: center;
+  }
+
+}
+
+
+.add-recipe-button {
+  display: block;
+  background-color: #4062BB;
+  color: snow;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.edit-button {
+  background-color: #2EC4B6;
+  color: snow;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  padding: 5px;
+}
+
+.delete-button {
+  background-color: #E71D36;
+  color: snow;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  padding: 5px;
+}

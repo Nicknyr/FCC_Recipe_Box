@@ -1,30 +1,18 @@
-body {
-  background-color: #f27935;
-  color: snow; }
-
-.Recipe-List {
-  margin-top: 4em; }
-  .Recipe-List h1 {
-    text-align: center; }
-  .Recipe-List ul li {
-    list-style-type: none; }
-  .Recipe-List label {
-    display: block; }
-  .Recipe-List button {
-    display: block;
-    margin: auto; }
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans|IBM+Plex+Serif");
+.Recipe-Item-Container {
+  margin: auto;
+  height: 100%;
+  width: 50%; }
 
 .Recipe-Item {
-  width: 50%;
-  margin: auto; }
-  .Recipe-Item .Recipe-Item-Container {
-    border: .5px solid snow;
-    margin: 1em; }
-  .Recipe-Item li {
-    font-size: 1.5em; }
-  .Recipe-Item button {
-    display: inline-block;
-    margin: 1em; }
+  border: 1px solid snow;
+  margin: 1em;
+  padding: .5em; }
+
+.buttons-container button {
+  margin-right: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em; }
 
 .Edit-Form {
   background-color: red; }
@@ -34,7 +22,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 3em;
-  height: 20em;
+  height: 50%;
   text-align: center;
   z-index: 2;
   position: absolute;
@@ -57,10 +45,102 @@ body {
 .Details {
   background-color: red; }
 
-button {
-  background-color: #03c9a9;
+body {
+  color: snow;
+  font-family: 'IBM Plex Sans', sans-serif; }
+
+h1, h3, h3 {
+  font-family: 'IBM Plex Serif', serif;
+  color: snow; }
+
+.container {
+  background-image: radial-gradient(circle farthest-corner at 0.8% 1.8%, #ff686b 0%, #ffbb67 90.1%);
+  height: 100vh;
+  overflow: auto; }
+  .container h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 2.5em; }
+  .container h3 {
+    font-size: 1.8em; }
+  .container p {
+    padding-top: .5em;
+    padding-bottom: .5em; }
+  .container label {
+    display: block; }
+  .container button {
+    text-align: center; }
+
+.add-recipe-button {
+  display: block;
+  background-color: #4062BB;
+  color: snow;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.edit-button {
+  background-color: #2EC4B6;
   color: snow;
   border: none;
   text-transform: uppercase;
   font-size: 1em;
   padding: 5px; }
+
+.delete-button {
+  background-color: #E71D36;
+  color: snow;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  padding: 5px; }
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }

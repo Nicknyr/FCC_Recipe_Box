@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 const RecipeForm = (props) => {
   return (
     <div>
@@ -8,7 +7,7 @@ const RecipeForm = (props) => {
         <p className="x-close" onClick={props.closeRecipeForm}>X</p>
         <div className="form-content">
           <label>Recipe Name</label>
-          
+
           <input
             name="inputVal"
             value={props.inputVal}

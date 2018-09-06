@@ -99,7 +99,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="Recipe-List">
+      <div className="container">
         <h1>Recipe List</h1>
 
         <Item
@@ -109,7 +109,7 @@ export default class App extends Component {
           delete={this.delete}
         />
 
-        <button onClick={this.AddRecipe}>Add New Recipe</button>
+      <button className="add-recipe-button" onClick={this.AddRecipe}>Add New Recipe</button>
 
         {/* Shows form to edit recipe */}
         { this.state.showRecipeEditForm ?
