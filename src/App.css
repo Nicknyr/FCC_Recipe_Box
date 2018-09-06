@@ -14,8 +14,12 @@
   margin-top: 1em;
   margin-bottom: 1em; }
 
-.Edit-Form {
-  background-color: red; }
+.modal-content {
+  background-color: lightgrey; }
+
+/*.Edit-Form {
+  background-color: red;
+}
 
 .Recipe-Form {
   background-color: lightgrey;
@@ -31,20 +35,26 @@
   box-shadow: 0px 0px 12px black;
   border-radius: 10px;
   top: 25%;
-  left: 25%; }
+  left: 25%;
+}
 
 .form-content {
-  margin-top: 3em; }
+  margin-top: 3em;
+}
 
 .x-close {
   width: 30px;
   float: right;
   margin-top: .2em;
-  margin-right: .2em; }
+  margin-right: .2em;
+
+}
 
 .Details {
-  background-color: red; }
+  background-color: red;
 
+}
+*/
 body {
   color: snow;
   font-family: 'IBM Plex Sans', sans-serif; }
@@ -56,6 +66,7 @@ h1, h3, h3 {
 .container {
   background-image: radial-gradient(circle farthest-corner at 0.8% 1.8%, #ff686b 0%, #ffbb67 90.1%);
   height: 100vh;
+  width: 100%;
   overflow: auto; }
   .container h1 {
     text-align: center;

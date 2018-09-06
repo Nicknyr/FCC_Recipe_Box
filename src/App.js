@@ -3,6 +3,8 @@ import Item from './Item';
 import './App.css';
 import RecipeForm from './RecipeForm.js';
 import RecipeEditForm from './RecipeEdit.js';
+import ModalComponent from './Modal.js';
+
 
 
 export default class App extends Component {
@@ -102,6 +104,18 @@ export default class App extends Component {
       <div className="container">
         <h1>Recipe List</h1>
 
+
+        <ModalComponent
+          inputVal={this.state.inputVal}
+          handleChange={this.handleChange}
+          ingredientVal={this.state.ingredientVal}
+          onSubmit={this.onSubmit}
+          addRecipe={this.addRecipe}
+          showRecipeForm={this.state.showRecipeForm}
+          closeRecipeForm={this.closeRecipeForm}
+        />
+
+
         <Item
           items={this.state.items}
           ingredients={this.state.ingredients}
@@ -111,7 +125,7 @@ export default class App extends Component {
 
       <button className="add-recipe-button" onClick={this.AddRecipe}>Add New Recipe</button>
 
-        {/* Shows form to edit recipe */}
+      {/*  {/* Shows form to edit recipe *
         { this.state.showRecipeEditForm ?
 
           <RecipeEditForm
@@ -125,7 +139,7 @@ export default class App extends Component {
           :null
         }
 
-        {/* Shows form to add new recipe to the list */}
+        {/* Shows form to add new recipe to the list
         { this.state.showRecipeForm ?
 
           <RecipeForm
@@ -138,6 +152,7 @@ export default class App extends Component {
 
           :null
         }
+      */}
 
       </div>
     );
