@@ -1,22 +1,38 @@
-.Recipe-Item-Container {
-  margin: auto;
-  height: 100%;
-  width: 50%;
+
+@media screen and (min-width: 300px) {
+  .Recipe-Item-Container {
+    margin: auto;
+    height: 100%;
+    width: 90%;
+  }
+
+  .Recipe-Item {
+    border: 1px solid snow;
+    margin: 1em;
+    padding: .5em;
+  }
+
+
+  .buttons-container {
+
+    button {
+      margin-right: 1em;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+  }
+
 }
 
-.Recipe-Item {
-  border: 1px solid snow;
-  margin: 1em;
-  padding: .5em;
+@media screen and (min-width: 762px) {
+  .Recipe-Item-Container {
+    width: 70%;
+  }
 }
 
 
-.buttons-container {
-
-  button {
-    margin-right: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-
+@media screen and (min-width: 992px) {
+  .Recipe-Item-Container {
+    width: 50%;
   }
 }

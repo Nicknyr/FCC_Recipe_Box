@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import Item from './Item';
 import './App.css';
-import RecipeForm from './RecipeForm.js';
-import RecipeEditForm from './RecipeEdit.js';
 import ModalComponent from './Modal.js';
-
-
+import Button from 'react-bootstrap/lib/Button';
+import EditModalComponent from './EditModal.js';
 
 export default class App extends Component {
   constructor(props) {
@@ -62,7 +60,8 @@ export default class App extends Component {
       items: items,
       ingredients: ingredients,
       inputVal: '',
-      ingredientVal: ''
+      ingredientVal: '',
+      showRecipeEditForm: false
     });
   }
 
@@ -82,8 +81,6 @@ export default class App extends Component {
 
   // Is called when one of the edit recipe buttons is clicked, shows RecipeEditForm
   edit = (item, index) => {
-    console.log('Edit button clicked');
-    console.log('index is ' + index);
     this.setState({
       showRecipeEditForm: !this.state.showRecipeEditForm,
       editingIndex: index
@@ -115,6 +112,16 @@ export default class App extends Component {
           closeRecipeForm={this.closeRecipeForm}
         />
 
+        <EditModalComponent
+          inputValEdit={this.state.inputValEdit}
+          handleChange={this.handleChange}
+          ingredientValEdit={this.state.ingredientValEdit}
+          onEditSubmit={this.onEditSubmit}
+          closeRecipeForm={this.closeRecipeForm}
+          addRecipe={this.addRecipe}
+          showRecipeEditForm={this.state.showRecipeEditForm}
+        />
+
 
         <Item
           items={this.state.items}
@@ -123,36 +130,7 @@ export default class App extends Component {
           delete={this.delete}
         />
 
-      <button className="add-recipe-button" onClick={this.AddRecipe}>Add New Recipe</button>
-
-      {/*  {/* Shows form to edit recipe *
-        { this.state.showRecipeEditForm ?
-
-          <RecipeEditForm
-            inputValEdit={this.state.inputValEdit}
-            handleChange={this.handleChange}
-            ingredientValEdit={this.state.ingredientValEdit}
-            onEditSubmit={this.onEditSubmit}
-            closeRecipeForm={this.closeRecipeForm}
-          />
-
-          :null
-        }
-
-        {/* Shows form to add new recipe to the list
-        { this.state.showRecipeForm ?
-
-          <RecipeForm
-            inputVal={this.state.inputVal}
-            handleChange={this.handleChange}
-            ingredientVal={this.state.ingredientVal}
-            onSubmit={this.onSubmit}
-            closeRecipeForm={this.closeRecipeForm}
-          />
-
-          :null
-        }
-      */}
+      <Button className="add-recipe-button" onClick={this.AddRecipe}>Add New Recipe</Button>
 
       </div>
     );

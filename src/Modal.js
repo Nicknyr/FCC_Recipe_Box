@@ -10,27 +10,24 @@ const ModalComponent = (props) => {
         <Modal.Title>Add New Recipe</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        <label>Recipe Name</label>
+        <input
+          name="inputVal"
+          value={props.inputVal}
+          onChange={props.handleChange}
+        />
 
-          <label>Recipe Name</label>
-
-          <input
-            name="inputVal"
-            value={props.inputVal}
-            onChange={props.handleChange}
-          />
-
-          <label>Ingredients</label>
+        <label>Ingredients</label>
           <input
             name="ingredientVal"
             value={props.ingredientVal}
             onChange={props.handleChange}
           />
-
-        <button onClick={props.onSubmit}>Submit</button>
-      
+        
+        <Button className="submit-button" onClick={props.onSubmit}>Submit</Button>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.closeRecipeForm}>Close</Button>
+        <Button className="close-button" onClick={props.closeRecipeForm}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
