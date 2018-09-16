@@ -4,6 +4,8 @@
     margin: auto;
     height: 100%;
     width: 90%; }
+  .ingredient {
+    margin: .5em; }
   .Recipe-Item {
     border: 1px solid snow;
     margin: 1em;
@@ -134,7 +136,8 @@
     font-size: 1em;
     padding: 5px;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    margin-bottom: 3em; }
     .add-recipe-button:hover {
       background-color: #4062BB;
       opacity: .5;

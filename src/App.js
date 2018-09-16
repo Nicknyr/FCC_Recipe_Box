@@ -4,6 +4,8 @@ import './App.css';
 import ModalComponent from './Modal.js';
 import Button from 'react-bootstrap/lib/Button';
 import EditModalComponent from './EditModal.js';
+import SimpleStorage from "react-simple-storage";
+
 
 export default class App extends Component {
   constructor(props) {
@@ -43,20 +45,18 @@ export default class App extends Component {
     event.preventDefault()
     this.setState({
       items: [...this.state.items, this.state.inputVal],
-      //ingredients: [...this.state.ingredients, this.state.ingredientVal],
       ingredients: [...this.state.ingredients, [this.state.ingredientVal]],
       showRecipeForm: false
     });
   }
 
+  // When user edits existing recipe this adds it to the list
   onEditSubmit = (event) => {
     event.preventDefault();
     const {items, ingredients, inputValEdit, ingredientValEdit, editingIndex} = this.state;
 
     // Selects proper recipe item to edit
     items[editingIndex] = inputValEdit;
-    //ingredients[editingIndex] = ingredientValEdit;
-    //ingredients[editingIndex] = [ingredientValEdit];
     ingredients[editingIndex] = ingredientValEdit.split(',');
 
 
@@ -103,6 +103,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
+        <SimpleStorage parent={this} />
         <h1>Recipe List</h1>
 
 

@@ -24,7 +24,7 @@ const EditModalComponent = (props) => {
               name="ingredientValEdit"
               value={props.ingredientValEdit}
               onChange={props.handleChange}
-              required
+              required="true"
             />
 
           <Button className="submit-button" onClick={props.onEditSubmit}>Submit</Button>
