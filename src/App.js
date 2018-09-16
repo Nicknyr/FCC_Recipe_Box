@@ -43,7 +43,8 @@ export default class App extends Component {
     event.preventDefault()
     this.setState({
       items: [...this.state.items, this.state.inputVal],
-      ingredients: [...this.state.ingredients, this.state.ingredientVal],
+      //ingredients: [...this.state.ingredients, this.state.ingredientVal],
+      ingredients: [...this.state.ingredients, [this.state.ingredientVal]],
       showRecipeForm: false
     });
   }
@@ -54,7 +55,10 @@ export default class App extends Component {
 
     // Selects proper recipe item to edit
     items[editingIndex] = inputValEdit;
-    ingredients[editingIndex] = ingredientValEdit;
+    //ingredients[editingIndex] = ingredientValEdit;
+    //ingredients[editingIndex] = [ingredientValEdit];
+    ingredients[editingIndex] = ingredientValEdit.split(',');
+
 
     this.setState({
       items: items,
