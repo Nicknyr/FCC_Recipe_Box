@@ -17,7 +17,7 @@ const ModalComponent = (props) => {
           onChange={props.handleChange}
         />
 
-        <label>Ingredients</label>
+      <label>Ingredients - Separate by commas</label>
           <input
             name="ingredientVal"
             value={props.ingredientVal}
@@ -26,7 +26,7 @@ const ModalComponent = (props) => {
 
         <Button className="submit-button" onClick={props.onSubmit}>Submit</Button>
       </Modal.Body>
-      
+
       <Modal.Footer>
         <Button className="close-button" onClick={props.closeRecipeForm}>Close</Button>
       </Modal.Footer>

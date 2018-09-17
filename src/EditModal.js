@@ -18,7 +18,7 @@ const EditModalComponent = (props) => {
             onChange={props.handleChange}
           />
 
-          <label>Ingredients</label>
+        <label>Ingredients - Separate by commas</label>
 
             <input
               name="ingredientValEdit"
