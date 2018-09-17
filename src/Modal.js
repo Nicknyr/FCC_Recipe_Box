@@ -23,9 +23,10 @@ const ModalComponent = (props) => {
             value={props.ingredientVal}
             onChange={props.handleChange}
           />
-        
+
         <Button className="submit-button" onClick={props.onSubmit}>Submit</Button>
       </Modal.Body>
+      
       <Modal.Footer>
         <Button className="close-button" onClick={props.closeRecipeForm}>Close</Button>
       </Modal.Footer>

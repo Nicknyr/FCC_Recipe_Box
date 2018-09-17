@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/lib/Button';
 import EditModalComponent from './EditModal.js';
 import SimpleStorage from "react-simple-storage";
 
-
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -43,10 +42,9 @@ export default class App extends Component {
   // When user submits recipe this adds it to the list
   onSubmit = (event) => {
     event.preventDefault();
-
     this.setState({
       items: [...this.state.items, this.state.inputVal],
-      ingredients: [...this.state.ingredients, [this.state.ingredientVal]],
+      ingredients: [...this.state.ingredients, this.state.ingredientVal.split(',')],
       showRecipeForm: false
     });
 
@@ -56,11 +54,9 @@ export default class App extends Component {
   onEditSubmit = (event) => {
     event.preventDefault();
     const {items, ingredients, inputValEdit, ingredientValEdit, editingIndex} = this.state;
-
     // Selects proper recipe item to edit
     items[editingIndex] = inputValEdit;
     ingredients[editingIndex] = ingredientValEdit.split(',');
-
 
     this.setState({
       items: items,
