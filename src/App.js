@@ -42,12 +42,14 @@ export default class App extends Component {
 
   // When user submits recipe this adds it to the list
   onSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
+
     this.setState({
       items: [...this.state.items, this.state.inputVal],
       ingredients: [...this.state.ingredients, [this.state.ingredientVal]],
       showRecipeForm: false
     });
+
   }
 
   // When user edits existing recipe this adds it to the list
@@ -103,7 +105,10 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
+
+        {/* Handles storing data in local sessions via react-simple-storage*/}
         <SimpleStorage parent={this} />
+
         <h1>Recipe List</h1>
 
 
